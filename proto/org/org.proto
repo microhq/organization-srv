@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+service Org {
+	rpc Create(CreateRequest) returns (CreateResponse) {}
+	rpc Read(ReadRequest) returns (ReadResponse) {}
+	rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+	rpc Update(UpdateRequest) returns (UpdateResponse) {}
+	rpc Search(SearchRequest) returns (SearchResponse) {}
+	rpc CreateMember(CreateMemberRequest) returns (CreateMemberResponse) {}
+	rpc ReadMember(ReadMemberRequest) returns (ReadMemberResponse) {}
+	rpc DeleteMember(DeleteMemberRequest) returns (DeleteMemberResponse) {}
+	rpc UpdateMember(UpdateMemberRequest) returns (UpdateMemberResponse) {}
+	rpc SearchMembers(SearchMembersRequest) returns (SearchMembersResponse) {}
+}
+
+message Organization {
+	string id = 1;		// uuid
+	string name = 2;	// alphanumeric user or org
+	string email = 3;
+	string owner = 4;
+	int64 created = 5;	// unix
+	int64 updated = 6;	// unix
+}
+
+message Member {
+	string id = 1;
+	string orgName = 2;
+	string username = 3;
+	repeated string roles = 4;
+	int64 created = 5;
+	int64 updated = 6;
+}
+
+
+message CreateRequest {
+	Organization organization = 1;
+}
+
+message CreateResponse {
+}
+
+message DeleteRequest {
+	string id = 1;
+}
+
+message DeleteResponse {
+}
+
+message ReadRequest {
+	string id = 1;
+}
+
+message ReadResponse {
+	Organization organization = 1;
+}
+
+message UpdateRequest {
+	Organization organization = 1;
+}
+
+message UpdateResponse {
+}
+
+message SearchRequest {
+	string name = 1; 
+	string owner = 2; 
+	int64 limit = 3;
+	int64 offset = 4;
+}
+
+message SearchResponse {
+	repeated Organization organizations = 1;
+}
+
+message CreateMemberRequest {
+	Member member = 1;
+}
+
+message CreateMemberResponse {
+}
+
+message DeleteMemberRequest {
+	string id = 1;
+}
+
+message DeleteMemberResponse {
+}
+
+message ReadMemberRequest {
+	string id = 1;
+}
+
+message ReadMemberResponse {
+	Member member = 1;
+}
+
+message UpdateMemberRequest {
+	Member member = 1;
+}
+
+message UpdateMemberResponse {
+}
+
+message SearchMembersRequest {
+	string orgName = 1; 
+	string username = 2; 
+	int64 limit = 3;
+	int64 offset = 4;
+}
+
+message SearchMembersResponse {
+	repeated Member members = 1;
+}
