@@ -9,13 +9,13 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/micro/organization-srv/proto/org"
+	"github.com/microhq/organization-srv/proto/org"
 )
 
 var (
 	db                 *sql.DB
 	Url                = "root@tcp(127.0.0.1:3306)/organization"
-	database string
+	database           string
 	organizationSchema = `CREATE TABLE IF NOT EXISTS organizations (
 id varchar(36) primary key,
 name varchar(255),
@@ -65,19 +65,19 @@ func Init() {
 	var d *sql.DB
 	var err error
 
-        parts := strings.Split(Url, "/")
-        if len(parts) != 2 {
-                panic("Invalid database url")
-        }
+	parts := strings.Split(Url, "/")
+	if len(parts) != 2 {
+		panic("Invalid database url")
+	}
 
-        if len(parts[1]) == 0 {
-                panic("Invalid database name")
-        }
+	if len(parts[1]) == 0 {
+		panic("Invalid database name")
+	}
 
-        url := parts[0]
-        database = parts[1]
+	url := parts[0]
+	database = parts[1]
 
-	if d, err = sql.Open("mysql", url + "/"); err != nil {
+	if d, err = sql.Open("mysql", url+"/"); err != nil {
 		log.Fatal(err)
 	}
 	if _, err := d.Exec("CREATE DATABASE IF NOT EXISTS " + database); err != nil {

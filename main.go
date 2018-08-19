@@ -5,9 +5,9 @@ import (
 
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
-	"github.com/micro/organization-srv/db"
-	"github.com/micro/organization-srv/handler"
-	"github.com/micro/organization-srv/proto/org"
+	"github.com/microhq/organization-srv/db"
+	"github.com/microhq/organization-srv/handler"
+	"github.com/microhq/organization-srv/proto/org"
 )
 
 func main() {

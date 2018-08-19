@@ -3,9 +3,9 @@ package handler
 import (
 	"strings"
 
-	"github.com/micro/organization-srv/db"
-	"github.com/micro/organization-srv/proto/org"
 	"github.com/micro/go-micro/errors"
+	"github.com/microhq/organization-srv/db"
+	"github.com/microhq/organization-srv/proto/org"
 	"golang.org/x/net/context"
 )
 

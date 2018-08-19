@@ -19,7 +19,7 @@ Organization server is a service to track orgs and members.
 4. Download and start the service
 
 	```shell
-	go get github.com/micro/organization-srv
+	go get github.com/microhq/organization-srv
 	organization-srv --database_url="root:root@tcp(192.168.99.100:3306)/organization"
 	```
 

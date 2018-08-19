@@ -6,7 +6,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/micro/organization-srv/proto/org"
+	"github.com/microhq/organization-srv/proto/org"
 )
 
 func CreateMember(member *org.Member) error {
