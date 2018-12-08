@@ -47,13 +47,19 @@ Org
 
 ### Org.Create
 ```shell
-micro query go.micro.srv.organization Org.Create '{ "organization": {"id": "1", "name": "Micro", "email": "micro@example.com", "owner": "asim"}}'
+micro call go.micro.srv.organization Org.Create '{ "organization": {"id": "1", "name": "Micro", "email": "micro@example.com", "owner": "asim"}}'
+```
+Response:
+```shell
 {}
 ```
 
 ### Org.Search
 ```shell
-micro query go.micro.srv.organization Org.Search '{"limit": 10}'
+micro call go.micro.srv.organization Org.Search '{"limit": 10}'
+```
+Response:
+```shell
 {
 	"organizations": [
 		{
